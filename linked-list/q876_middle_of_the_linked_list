@@ -1,0 +1,35 @@
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        int half = countNode(head) / 2;
+        return moveNTime(head, half);
+
+    }
+
+    private int countNode(ListNode head) {
+        int count = 0;
+        while (head != null) {
+            head = head.next;
+            count++;
+        }
+        return count;
+    }
+
+    private ListNode moveNTime(ListNode node, int n) {
+        while (n > 0 && node != null) {
+            node = node.next;
+            n--;
+        }
+        return node;
+    }
+
+    public ListNode middleNode2(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow
+    }
+}
+
